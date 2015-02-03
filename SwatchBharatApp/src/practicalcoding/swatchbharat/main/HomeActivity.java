@@ -234,7 +234,7 @@ public class HomeActivity extends Activity {
 		if(latLng.equals("") || latLng.equals(null)){
 			Toast.makeText(this, "sorry location is not avialble", 10).show();
 		}else{
-		Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("geo:" + latLng));
+		Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("geo:" + latLng + "?q=" + latLng));
 		 startActivity(intent);
 		}
 	}
@@ -354,8 +354,8 @@ public void showPicture(String objectId)
 											// We need to get the instance of the LayoutInflater
 											LayoutInflater inflater = (LayoutInflater) HomeActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 											View layout = inflater.inflate(R.layout.dialog_image,(ViewGroup) findViewById(R.id.popup_element));
-											pwindo = new PopupWindow(layout, LayoutParams.WRAP_CONTENT,  
-								                     LayoutParams.WRAP_CONTENT);
+											pwindo = new PopupWindow(layout, LayoutParams.FILL_PARENT,  
+								                     LayoutParams.FILL_PARENT);
 											//pwindo = new PopupWindow(layout);
 											//pwindo.setFocusable(true);
 											pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
